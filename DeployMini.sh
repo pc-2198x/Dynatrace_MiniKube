@@ -32,7 +32,7 @@ esac
 # Ask if you want to use Docker or KVM2
 read -p "*** Do you want to use the Docker or KVM2 Driver? (d/k)? ***" choice
 case "$choice" in 
-  d|D ) if [ $DT_DEL="Y" ] # If Docker Cleanup variable is set to Y
+  d|D ) if [ "$DT_DEL" == "Y" ] # If Docker Cleanup variable is set to Y
         then
               # Cleanup Docker
               echo "*** Cleaning up Docker... ***"
