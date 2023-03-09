@@ -31,12 +31,15 @@ esac
 
 # Check if Docker Cleanup variable is set
 if [ "$DT_DEL" = "Y" ] # If Docker Cleanup variable is set to Y
-  then
-    # Cleanup Docker
-    echo "*** Cleaning up Docker... ***"
-    docker rmi $(docker images -f reference=gcr.io/k8s-minikube/kicbase -q) # Remove docker images
+then
+      # Cleanup Docker
+      echo "*** Cleaning up Docker... ***"
+      docker rmi $(docker images -f reference=gcr.io/k8s-minikube/kicbase -q) # Remove docker images
 fi
-echo "*** Using Docker... ***"; minikube start --driver=docker
+
+# Start Docker
+echo "*** Using Docker... ***"
+minikube start --driver=docker
 
 # Create DT Namespace
 echo "*** Creating DT Namespace. ***"
